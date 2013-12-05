@@ -1,0 +1,26 @@
+<html>
+<head>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.1.2/handlebars.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+</head>
+ 
+<body>
+  <!-- Your handlebars template goes below... -->
+  <script id="my-one-template" type="text/x-handlebars-template">
+    ...all kinds of template goodness...
+  </script>
+ 
+  <div class="render-space"></div>
+ 
+  <script>
+    var source = $('my-one-template').html();
+    var template = Handlebars.compile(source);
+ 
+    // The path to your JSON file goes below...
+    $.getJSON('/path/to/data.json', function(data) {
+      var html = template(data);
+      $('.render-space').html(html);
+    });
+  </script>
+</body>
+</html>
